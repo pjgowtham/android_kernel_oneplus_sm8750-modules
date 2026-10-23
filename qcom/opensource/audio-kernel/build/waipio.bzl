@@ -25,6 +25,7 @@ def define_waipio():
         modules = [
             "oplus_audio_daemon",
             "oplus_audio_extend",
+            "oplus_audio_tfa98xx_v6",
             "oplus_audio_pa_manager",
             "oplus_audio_netlink",
             "q6_dlkm",
