@@ -1,1 +1,5 @@
+ifeq ($(CONFIG_ARCH_WAIPIO), y)
+obj-m := waipio/
+else
 obj-m := msm_video/ video/
+endif

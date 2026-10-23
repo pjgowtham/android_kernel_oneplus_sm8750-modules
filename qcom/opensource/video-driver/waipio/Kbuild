@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: GPL-2.0-only
+ccflags-y += -DCONFIG_MSM_VIDC_WAIPIO=1 -DCONFIG_MSM_VIDC_IRIS2=1 -DCONFIG_MSM_MMRM=1
+ccflags-y += -I$(src)/driver/vidc/inc -I$(src)/driver/platform/common/inc -I$(src)/driver/platform/waipio/inc -I$(src)/driver/variant/iris2/inc -I$(src)/include/uapi/vidc
+obj-m += msm_video.o
+msm_video-y := driver/platform/common/src/msm_vidc_platform.o \
+    driver/platform/waipio/src/msm_vidc_waipio.o \
+    driver/variant/iris2/src/msm_vidc_buffer_iris2.o \
+    driver/variant/iris2/src/msm_vidc_iris2.o \
+    driver/variant/iris2/src/msm_vidc_power_iris2.o \
+    driver/vidc/src/hfi_packet.o \
+    driver/vidc/src/msm_vdec.o \
+    driver/vidc/src/msm_venc.o \
+    driver/vidc/src/msm_vidc.o \
+    driver/vidc/src/msm_vidc_buffer.o \
+    driver/vidc/src/msm_vidc_control.o \
+    driver/vidc/src/msm_vidc_debug.o \
+    driver/vidc/src/msm_vidc_driver.o \
+    driver/vidc/src/msm_vidc_dt.o \
+    driver/vidc/src/msm_vidc_fence.o \
+    driver/vidc/src/msm_vidc_memory.o \
+    driver/vidc/src/msm_vidc_power.o \
+    driver/vidc/src/msm_vidc_probe.o \
+    driver/vidc/src/msm_vidc_v4l2.o \
+    driver/vidc/src/msm_vidc_vb2.o \
+    driver/vidc/src/venus_hfi.o \
+    driver/vidc/src/venus_hfi_response.o
