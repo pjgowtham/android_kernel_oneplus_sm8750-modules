@@ -1,3 +1,5 @@
+NFC_ROOT ?= $(srctree)/$(src)
+
 #Makefile for qti nfc drivers
 
 include $(NFC_ROOT)/config/gki_nfc.conf
