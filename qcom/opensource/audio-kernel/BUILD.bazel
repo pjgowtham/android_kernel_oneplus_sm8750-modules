@@ -111,3 +111,9 @@ define_sun()
 define_kalama()
 define_pineapple()
 define_blair()
+
+filegroup(
+    name = "audio_dt_bindings",
+    srcs = glob(["include/bindings/*.h"]),
+    visibility = ["//visibility:public"],
+)

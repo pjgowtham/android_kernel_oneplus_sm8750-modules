@@ -33,3 +33,9 @@ define_niobe()
 load(":sun.bzl", "define_sun")
 
 define_sun()
+
+filegroup(
+    name = "synx_dt_bindings",
+    srcs = glob(["dt-bindings/*.h"]),
+    visibility = ["//visibility:public"],
+)
