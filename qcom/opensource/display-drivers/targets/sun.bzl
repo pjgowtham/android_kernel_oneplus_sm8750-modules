@@ -15,6 +15,7 @@ def define_sun():
                 config_options = [
 #ifdef OPLUS_FEATURE_DISPLAY
                     "OPLUS_FEATURE_DISPLAY",
+                    "CONFIG_OPLUS_FPGA_MONITOR",
                     "OPLUS_FEATURE_DISPLAY_ADFR",
                     "OPLUS_FEATURE_DISPLAY_HIGH_PRECISION",
                     "OPLUS_FEATURE_DISPLAY_TEMP_COMPENSATION",

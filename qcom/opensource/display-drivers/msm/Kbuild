@@ -319,7 +319,6 @@ msm_drm-$(CONFIG_DRM_MSM) += msm_atomic.o \
 			     msm_prop.o
 
 msm_drm-$(OPLUS_FEATURE_DISPLAY) += \
-				../oplus/SM8750/oplus_apuirdim.o \
 				../oplus/SM8750/oplus_display_utils.o \
 				../oplus/SM8750/oplus_display_sysfs_attrs.o \
 				../oplus/SM8750/oplus_display_dc_diming.o \
@@ -339,6 +338,8 @@ msm_drm-$(OPLUS_FEATURE_DISPLAY) += \
 				../oplus/SM8750/oplus_display_esd.o \
 				../oplus/SM8750/oplus_bl_ic_ktz8868.o
 
+msm_drm-$(OPLUS_FEATURE_AP_UIR_DIMMING) += ../oplus/SM8750/oplus_apuirdim.o
+
 msm_drm-$(OPLUS_FEATURE_DISPLAY_ADFR) += ../oplus/SM8750/oplus_adfr.o
 
 msm_drm-$(OPLUS_FEATURE_DISPLAY_TEMP_COMPENSATION) += ../oplus/SM8750/oplus_display_temp_compensation.o
@@ -350,3 +351,5 @@ msm_drm-$(OPLUS_FEATURE_TP_BASIC) += ../oplus/SM8750/oplus_display_notify_tp.o
 ccflags-$(OPLUS_FEATURE_DISPLAY) += \
 	-I$(DISPLAY_ROOT)/oplus/SM8750 \
 	-I$(DISPLAY_ROOT)/oplus/SM8750/include \
+
+ccflags-$(CONFIG_OPLUS_FPGA_MONITOR) += -DCONFIG_OPLUS_FPGA_MONITOR=1

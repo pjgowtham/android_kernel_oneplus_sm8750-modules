@@ -867,7 +867,8 @@ void oplus_connector_check_status_work(void *dsi_display)
 		return;
 	}
 
-	if (!primary_display->panel->oplus_panel.fpga_support) {
+	if (!IS_REACHABLE(CONFIG_OPLUS_FPGA_MONITOR) ||
+	    !primary_display->panel->oplus_panel.fpga_support) {
 		OPLUS_DSI_INFO("panel isn't support fpga\n");
 		return;
 	}
