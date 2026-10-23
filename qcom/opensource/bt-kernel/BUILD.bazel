@@ -15,3 +15,7 @@ load(":target.bzl", "define_parrot")
 define_pineapple()
 define_sun()
 define_parrot()
+
+load(":target.bzl", "define_waipio")
+
+define_waipio()

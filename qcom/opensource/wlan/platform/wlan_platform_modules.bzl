@@ -1,3 +1,4 @@
+load("//vendor/qcom/kernel:target_variants.bzl", "get_all_la_variants")
 load("//build/kernel/kleaf:kernel.bzl", "ddk_module")
 load("@rules_pkg//pkg:install.bzl", "pkg_install")
 load("@rules_pkg//pkg:mappings.bzl", "pkg_files", "strip_prefix")
@@ -10,7 +11,7 @@ _default_module_enablement_list = [
     "wlan_firmware_service",
 ]
 
-_cnss2_enabled_target = ["seraph", "niobe", "pineapple", "sun", "x1e80100", "volcano", "canoe", "hamoa", "hamoa_la", "sdxkova", "autogvm", "autoghgvm", "lahaina", "parrot", "art", "art16k", "sa510m", "sa510m.1g"]
+_cnss2_enabled_target = ["waipio", "seraph", "niobe", "pineapple", "sun", "x1e80100", "volcano", "canoe", "hamoa", "hamoa_la", "sdxkova", "autogvm", "autoghgvm", "lahaina", "parrot", "art", "art16k", "sa510m", "sa510m.1g"]
 _icnss2_enabled_target = ["blair", "pineapple", "monaco", "pitti", "volcano", "parrot", "sun", "canoe", "lahaina", "chora", "art", "art16k", "alor-le", "bengal", "malabar", "shikra"]
 
 def matching_la_variant(target_16k):
@@ -348,3 +349,7 @@ def define_modules():
         print("v=", v)
         if t in _cnss2_enabled_target or t in _icnss2_enabled_target:
             _define_modules_for_target_variant(t, v)
+
+    for target, variant in get_all_la_variants():
+        if target == "waipio":
+            _define_modules_for_target_variant(target, variant)

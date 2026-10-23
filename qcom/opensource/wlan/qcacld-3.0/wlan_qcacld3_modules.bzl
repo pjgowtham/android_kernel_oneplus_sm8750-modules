@@ -1,9 +1,11 @@
+load("//vendor/qcom/kernel:target_variants.bzl", "get_all_la_variants")
 load("//build/kernel/kleaf:kernel.bzl", "ddk_module")
 load(":target_variants.bzl", "get_all_variants")
 load("@rules_pkg//pkg:install.bzl", "pkg_install")
 load("@rules_pkg//pkg:mappings.bzl", "pkg_files", "strip_prefix")
 
 _target_chipset_map = {
+    "waipio": ["qca6490"],
     "neo-la": [
 	"kiwi-v2",
     ],
@@ -2306,10 +2308,9 @@ def _define_module_for_target_variant_chipset(target, variant, chipset):
     chipset_ipaths = _chipset_header_map[chipset]
     hw_ipaths = _hw_header_map[hw]
 
-    deps = ["//vendor/qcom/kernel:all_headers"],
-    })
+    deps = ["//vendor/qcom/kernel:all_headers"]
 
-    kernel_build = "//vendor/qcom/kernel:{}".format(tv),
+    kernel_build = "//vendor/qcom/kernel:{}".format(tv)
 
     ipaths = chipset_ipaths + hw_ipaths + _fixed_ipaths
 
@@ -2511,3 +2512,8 @@ def define_modules():
             for c in chipsets:
                 _define_module_for_target_variant_chipset(t, v, c)
             define_dist(t, v, chipsets)
+
+    for target, variant in get_all_la_variants():
+        if target == "waipio":
+            _define_module_for_target_variant_chipset(target, variant, "qca6490")
+            define_dist(target, variant, ["qca6490"])
