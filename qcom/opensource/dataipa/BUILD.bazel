@@ -111,3 +111,7 @@ genrule(
     outs = ["gki_defconfig.conf"],
     cmd = "cat $(SRCS) | sed -e 's/^export //g' > $@",
 )
+
+define_modules("waipio", "consolidate")
+
+define_modules("waipio", "perf")

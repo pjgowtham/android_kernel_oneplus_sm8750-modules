@@ -129,3 +129,7 @@ define_niobe()
 
 load(":targets/monaco.bzl", "define_monaco")
 define_monaco()
+
+load(":targets/waipio.bzl", "define_waipio")
+
+define_waipio()

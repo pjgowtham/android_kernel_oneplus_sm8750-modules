@@ -117,3 +117,7 @@ filegroup(
     srcs = glob(["include/bindings/*.h"]),
     visibility = ["//visibility:public"],
 )
+
+load(":build/waipio.bzl", "define_waipio")
+
+define_waipio()

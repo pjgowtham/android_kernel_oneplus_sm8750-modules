@@ -105,3 +105,7 @@ define_sdxkova()
 define_sa510m()
 define_sa510m_1g()
 define_autoghgvm()
+
+load(":build/waipio.bzl", "define_waipio")
+
+define_waipio()

@@ -23,7 +23,7 @@ def _define_module(target, variant):
         cmd = "cat $(SRCS) > $@",
     )
 
-    if target == "pineapple":
+    if target in ["pineapple", "waipio"]:
         deps.extend([
             "//vendor/qcom/sm8750-modules/qcom/opensource/synx-kernel:synx_headers",
             "//vendor/qcom/sm8750-modules/qcom/opensource/synx-kernel:{}_modules".format(tv),

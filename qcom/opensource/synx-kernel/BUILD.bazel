@@ -39,3 +39,7 @@ filegroup(
     srcs = glob(["dt-bindings/*.h"]),
     visibility = ["//visibility:public"],
 )
+
+load(":waipio.bzl", "define_waipio")
+
+define_waipio()

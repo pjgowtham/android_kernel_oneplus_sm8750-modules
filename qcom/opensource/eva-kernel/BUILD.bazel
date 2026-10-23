@@ -42,3 +42,7 @@ define_tuna()
 
 load(":pineapple.bzl", "define_pineapple")
 define_pineapple()
+
+load(":waipio.bzl", "define_waipio")
+
+define_waipio()

@@ -29,3 +29,7 @@ ddk_headers(
     ]),
     includes = ["core"],
 )
+
+define_modules("waipio", "consolidate")
+
+define_modules("waipio", "perf")
