@@ -40,6 +40,9 @@ KBUILD_EXTRA_SYMBOLS := $(M)/touch_custom/Module.symvers
 # oplus_bsp_tp_notify-y += touchpanel_notify/touchpanel_event_notify.o
 # obj-$(CONFIG_TOUCHPANEL_NOTIFY) += oplus_bsp_tp_notify.o
 
+ifeq ($(CONFIG_ARCH_WAIPIO),y)
+obj-$(CONFIG_TOUCHPANEL_SYNAPTICS) += Synaptics/
+else
 obj-y += Synaptics/
 obj-y += Focal/
 obj-y += Goodix/
@@ -49,3 +52,5 @@ obj-$(CONFIG_TOUCHPANEL_SAMSUNG) += Samsung/
 obj-y += ilitek/
 obj-$(CONFIG_TOUCHPANEL_JADARD) += Jadard/
 obj-$(CONFIG_TOUCHPANEL_ST) += St/
+
+endif

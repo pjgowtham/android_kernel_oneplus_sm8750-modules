@@ -3966,7 +3966,7 @@ static fw_update_state syna_tcm_fw_update(void *chip_data,
 				memcpy(tcm_info->g_fw_buf, fw->data, fw->size);
 				tcm_info->g_fw_sta = true;
 			} else {
-				TPD_INFO("fw->size:%d is less than %d\n", fw->size, FW_BUF_SIZE);
+				TPD_INFO("fw->size:%zu is less than %d\n", fw->size, FW_BUF_SIZE);
 				return FW_UPDATE_FATAL;
 			}
 		}
@@ -7372,8 +7372,7 @@ static void init_chip_dts(struct device *dev, void *chip_data)
 	}
 }
 
-static int syna_tcm_probe(struct i2c_client *client,
-			  const struct i2c_device_id *id)
+static int syna_tcm_probe(struct i2c_client *client)
 {
 	int retval = 0;
 	struct syna_tcm_data *tcm_info = NULL;
@@ -7629,20 +7628,20 @@ static void syna_tcm_tp_shutdown(struct i2c_client *client)
 	tp_shutdown(ts);
 }
 
-static int syna_tcm_remove(struct i2c_client *client)
+static void syna_tcm_remove(struct i2c_client *client)
 {
 	struct touchpanel_data *ts = NULL;
 	struct syna_tcm_data *tcm_info = NULL;
 
 	if (!client) {
 		TPD_INFO("%s client is NULL\n", __func__);
-		return -1;
+		return;
 	}
 
 	ts = i2c_get_clientdata(client);
 	if (!ts) {
 		TPD_INFO("%s ts is NULL\n", __func__);
-		return -1;
+		return;
 	}
 
 	tcm_info = (struct syna_tcm_data *)ts->chip_data;
@@ -7666,7 +7665,7 @@ static int syna_tcm_remove(struct i2c_client *client)
 	tp_kfree((void **)&tcm_info);
 	i2c_set_clientdata(client, NULL);
 
-	return 0;
+	return;
 }
 
 static int syna_i2c_suspend(struct device *dev)

@@ -5,9 +5,11 @@
 # Each configuration option enables a list of files.
 obj-$(CONFIG_TOUCHPANEL_SYNAPTICS_S3706) += S3706/
 obj-$(CONFIG_TOUCHPANEL_SYNAPTICS_TCM_ONCELL) += Syna_tcm_oncell/
+ifneq ($(CONFIG_ARCH_WAIPIO),y)
 obj-y += Syna_tcm_S3910/
 obj-y += Syna_tcm_S3908/
 obj-y += TD4377_noflash/
+endif
 
 oplus_bsp_tp_syna_comnon-y += synaptics_touch_panel_remote.o
 oplus_bsp_tp_syna_comnon-y += synaptics_common.o

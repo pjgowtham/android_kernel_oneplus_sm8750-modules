@@ -492,7 +492,7 @@ static int device_release(struct inode *inode, struct file *filp)
 	return 0;
 }
 
-static char *device_devnode(struct device *dev, umode_t *mode)
+static char *device_devnode(const struct device *dev, umode_t *mode)
 {
 	if (!mode) {
 		return NULL;
@@ -510,7 +510,7 @@ static int device_create_class(struct device_hcd *device_hcd)
 		return 0;
 	}
 
-	device_hcd->class = class_create(THIS_MODULE, PLATFORM_DRIVER_NAME);
+	device_hcd->class = class_create(PLATFORM_DRIVER_NAME);
 
 	if (IS_ERR(device_hcd->class)) {
 		pr_err("Failed to create class\n");
