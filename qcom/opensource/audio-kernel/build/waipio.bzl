@@ -70,5 +70,8 @@ def define_waipio():
             "CONFIG_SND_SOC_WCD9XXX_V2",
             "CONFIG_SND_SOC_WCD_MBHC_ADC",
             "CONFIG_MSM_EXT_DISPLAY",
+            "OPLUS_ARCH_EXTENDS",
+            "OPLUS_FEATURE_SPEAKER_MUTE",
+            "OPLUS_FEATURE_RINGTONE_HAPTIC",
         ]
     )
