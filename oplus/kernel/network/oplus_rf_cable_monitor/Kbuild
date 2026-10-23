@@ -1,2 +1,8 @@
+ifeq ($(CONFIG_ARCH_WAIPIO),y)
+obj-$(CONFIG_OPLUS_RF_CABLE_MONITOR) += oplus_rf_cable_monitor.o
+oplus_rf_cable_monitor-y := oplus_rf_cable_gpio.o
+else
 obj-m := oplus_network_rf_cable_monitor.o
 oplus_network_rf_cable_monitor-y := oplus_rf_cable_monitor.o
+
+endif
